@@ -60,7 +60,7 @@ def test_update_item_not_found(client):
     assert res.status_code == 404
 
 
-# DELETE
+#  To DELETE 
 def test_delete_item(client):
     res = client.delete('/inventory/2')
     assert res.status_code == 200
