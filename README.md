@@ -39,7 +39,7 @@ source .venv/bin/activate   # Mac/Linux
 
 ### 3. Install dependencies
 ```bash
-pip install flask requests pytest python-dotenv
+pip install -r requirements.txt
 ```
 
 ## Running the App
@@ -108,35 +108,3 @@ Exit
 
 
 
-Step 8 — Push to GitHub
-First create a .gitignore file so you don't push unnecessary files:
-Create .gitignore in your root folder:
-.venv/
-__pycache__/
-*.pyc
-.env
-Now run these git commands one at a time:
-Initialize git:
-bashgit init
-Create your first branch:
-bashgit checkout -b main
-Stage all files:
-bashgit add .
-Make your first commit:
-bashgit commit -m "Initial commit - inventory management system"
-Now go to GitHub:
-
-Go to github.com
-Click the + button top right
-Click New repository
-Name it inventory_management
-Leave it empty (no README, no .gitignore)
-Click Create repository
-
-Copy the commands GitHub shows you under "push an existing repository" — they will look like this:
-bashgit remote add origin https://github.com/yourusername/inventory_management.git
-git push -u origin main
-
-Once that's done your whole project is done. Here's what you built:
-FileWhat you learnedinventory.pyPython lists as databasesexternal_api.pyCalling external APIs with requestsapp.pyFlask routes, CRUD, HTTP methodscli.pyBuilding a menu that talks to an APItest_app.pyWriting tests with pytest and mocking
-Tell me when it's on GitHub and I'll help you with anything else!
