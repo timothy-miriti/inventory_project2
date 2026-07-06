@@ -1,17 +1,19 @@
 import requests
+from colorama import Fore, Style,init
+init(autoreset=True)
 
 BASE_URL = 'http://127.0.0.1:5000'
 
 # Menu 
 def display_menu():
-    print('\n===== Inventory Manager =====')
-    print('1. View all inventory')
-    print('2. View single item')
-    print('3. Add new item')
-    print('4. Update item')
-    print('5. Delete item')
-    print('6. Fetch item from OpenFoodFacts by barcode')
-    print('0. Exit')
+    print(f'\n{Fore.CYAN}===== Inventory Manager ====={Style.RESET_ALL}')
+    print(f'{Fore.GREEN}1. View all inventory{Style.RESET_ALL}')
+    print(f'{Fore.GREEN}2. View single item{Style.RESET_ALL}')
+    print(f'{Fore.GREEN}3. Add new item{Style.RESET_ALL}')
+    print(f'{Fore.GREEN}4. Update item{Style.RESET_ALL}')
+    print(f'{Fore.RED}5. Delete item{Style.RESET_ALL}')
+    print(f'{Fore.BLUE}6. Fetch item from OpenFoodFacts by barcode{Style.RESET_ALL}')
+    print(f'{Fore.RED}0. Exit{Style.RESET_ALL}')
     return input('Choose an option: ')
 
 
@@ -22,7 +24,7 @@ def view_all():
     if not items:
         print('No items in inventory.')
         return
-    print('\n── All Inventory ──')
+    print(f'\n{Fore.GREEN}── All Inventory ──{Style.RESET_ALL}')
     for item in items:
         print(f"[{item['id']}] {item['product_name']} | {item['brands']} | ${item['price']} | Stock: {item['stock']}")
 
@@ -35,14 +37,14 @@ def view_one():
         print('Item not found.')
         return
     item = res.json()
-    print('\n── Item Details ──')
+    print(f'\n{Fore.GREEN}── Item Details ──{Style.RESET_ALL}')
     for key, val in item.items():
         print(f'  {key}: {val}')
 
 
 #  Add item 
 def add_item():
-    print('\n── Add New Item ──')
+    print(f'\n{Fore.GREEN}── Add New Item ──{Style.RESET_ALL}')
     name    = input('Product name: ')
     brand   = input('Brand: ')
     price   = input('Price: ')
@@ -118,7 +120,7 @@ def main():
             print('Goodbye.')
             break
         else:
-            print('Invalid option, try again.')
+            print(f'{Fore.RED}Invalid option, try again.{Style.RESET_ALL}')
 
 if __name__ == '__main__':
     main()
